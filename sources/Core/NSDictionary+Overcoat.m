@@ -24,6 +24,7 @@
 
 @implementation NSDictionary (Overcoat)
 
+// 可以用valueForKeyPath代替
 - (id)ovc_objectForKeyPath:(NSString *)keyPath {
     NSArray *keys = [keyPath componentsSeparatedByString:@"."];
     id object = self;

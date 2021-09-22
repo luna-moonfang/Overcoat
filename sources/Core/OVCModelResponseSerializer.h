@@ -51,6 +51,7 @@ NS_ASSUME_NONNULL_BEGIN
  TODO: Doc for why don't inherite it (PR104)
  */
 @property(nonatomic, strong) AFJSONResponseSerializer *jsonSerializer;
+// https://github.com/Overcoat/Overcoat/pull/104
 
 /**
  Creates and returns model serializer.

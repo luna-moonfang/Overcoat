@@ -32,6 +32,8 @@ NS_ASSUME_NONNULL_BEGIN
  responses into native model objects which can optionally be persisted in a Core Data store.
  */
 @interface OVCHTTPSessionManager OVCGenerics(ResponseType: OVCResponse *) : AFHTTPSessionManager
+// @interface OVCHTTPSessionManager<ResponseType: OVCResponse *> : AFHTTPSessionManager
+// 类的声明后接<>, 里面写什么内容都可以. 原因未知.
 
 /**
  Specifies how to map responses to different model classes.

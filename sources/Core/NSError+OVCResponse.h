@@ -29,6 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 extern NSString * const OVCResponseKey;
 
+// 把response信息加入NSError, OVCResponse是MTLModel的子类, 保存repsonse相关的内容
 @interface NSError (OVCResponse)
 
 - (instancetype)ovc_errorWithUnderlyingResponse:(OVC_NULLABLE OVCResponse *)response;

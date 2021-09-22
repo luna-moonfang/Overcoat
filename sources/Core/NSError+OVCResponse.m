@@ -33,7 +33,7 @@ NSString *const OVCResponseKey = @"OVCResponse";
     }
     
     NSDictionary *userInfo = @{OVCResponseKey: response};
-    userInfo = [userInfo mtl_dictionaryByAddingEntriesFromDictionary:self.userInfo];
+    userInfo = [userInfo mtl_dictionaryByAddingEntriesFromDictionary:self.userInfo]; // 合并两个字典
     
     return [self.class errorWithDomain:self.domain code:self.code userInfo:userInfo];
 }

@@ -58,6 +58,7 @@
 
 #pragma mark - HTTP Manager Protocol
 
+// path到model的映射, *和**匹配任意文本, #匹配数字
 + (NSDictionary *)modelClassesByResourcePath {
     [NSException
      raise:NSInternalInconsistencyException
@@ -65,10 +66,13 @@
     return nil;  // Not reached
 }
 
+// path到response的映射, *匹配任意文本, #匹配数字
 + (NSDictionary *)responseClassesByResourcePath {
     return @{@"**": [OVCResponse class]};
 }
 
+// path到error model的映射
+// error model和正常model需要分开?
 + (NSDictionary *)errorModelClassesByResourcePath {
     return nil;
 }
@@ -110,6 +114,8 @@
                            if (!error) {
                                completion(responseObject, nil);
                            } else {
+                               // 向NSError加入response信息
+                               // ???: 是responseSerializer已经将responseObject变成MTLModel?
                                error = [error ovc_errorWithUnderlyingResponse:responseObject];
                                completion(responseObject, error);
                            }
